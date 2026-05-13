@@ -1,0 +1,276 @@
+:root {
+  font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  color: #102033;
+  background: #eef4ff;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  min-height: 100vh;
+}
+
+button {
+  font: inherit;
+}
+
+.app-shell {
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+  padding: 32px 16px;
+  background:
+    radial-gradient(circle at 20% 20%, rgba(71, 117, 255, 0.28), transparent 28%),
+    radial-gradient(circle at 80% 10%, rgba(52, 211, 153, 0.22), transparent 24%),
+    linear-gradient(135deg, #eef4ff 0%, #f8fbff 48%, #e9f7ff 100%);
+}
+
+.calculator-card {
+  width: min(420px, 100%);
+  padding: 22px;
+  border-radius: 30px;
+  background: rgba(255, 255, 255, 0.86);
+  border: 1px solid rgba(255, 255, 255, 0.78);
+  box-shadow: 0 28px 80px rgba(41, 73, 118, 0.22);
+  backdrop-filter: blur(18px);
+}
+
+.card-header {
+  display: flex;
+  gap: 14px;
+  align-items: center;
+  margin-bottom: 18px;
+}
+
+.brand-icon {
+  width: 52px;
+  height: 52px;
+  display: grid;
+  place-items: center;
+  border-radius: 18px;
+  color: white;
+  background: linear-gradient(135deg, #3b82f6, #14b8a6);
+  box-shadow: 0 12px 24px rgba(59, 130, 246, 0.28);
+}
+
+.eyebrow {
+  margin: 0 0 2px;
+  color: #5d6f85;
+  font-size: 0.78rem;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+h1,
+h2,
+p {
+  margin-top: 0;
+}
+
+h1 {
+  margin-bottom: 0;
+  font-size: clamp(1.5rem, 5vw, 2rem);
+  letter-spacing: -0.04em;
+}
+
+.display-panel {
+  min-height: 138px;
+  padding: 18px;
+  margin-bottom: 16px;
+  border-radius: 24px;
+  color: #eff6ff;
+  background: linear-gradient(145deg, #12233b, #203b60);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.12);
+}
+
+.display-label {
+  margin-bottom: 10px;
+  color: #9db4d3;
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.display-value {
+  min-height: 48px;
+  overflow: hidden;
+  text-align: right;
+  color: white;
+  font-size: clamp(2.1rem, 11vw, 3.4rem);
+  font-weight: 800;
+  line-height: 1;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.hint,
+.error-message {
+  margin: 12px 0 0;
+  min-height: 20px;
+  font-size: 0.9rem;
+}
+
+.hint {
+  color: #b8c9df;
+}
+
+.error-message {
+  color: #fecaca;
+  font-weight: 700;
+}
+
+.button-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 10px;
+}
+
+.calc-button {
+  min-height: 64px;
+  border: 0;
+  border-radius: 20px;
+  cursor: pointer;
+  color: #18304c;
+  background: #f4f8ff;
+  font-size: 1.35rem;
+  font-weight: 800;
+  box-shadow: 0 10px 20px rgba(39, 64, 96, 0.09);
+  transition: transform 160ms ease, box-shadow 160ms ease, filter 160ms ease;
+}
+
+.calc-button:hover:not(:disabled) {
+  transform: translateY(-2px);
+  box-shadow: 0 14px 26px rgba(39, 64, 96, 0.14);
+}
+
+.calc-button:active:not(:disabled) {
+  transform: translateY(0);
+}
+
+.calc-button:disabled {
+  cursor: wait;
+  opacity: 0.72;
+}
+
+.calc-button.operator {
+  color: #0f766e;
+  background: #dffaf4;
+}
+
+.calc-button.action {
+  color: #9a3412;
+  background: #fff0df;
+}
+
+.calc-button.equals {
+  color: white;
+  background: linear-gradient(135deg, #2563eb, #14b8a6);
+}
+
+.calc-button.wide {
+  grid-column: span 2;
+}
+
+.history-panel {
+  margin-top: 18px;
+  padding: 16px;
+  border-radius: 22px;
+  background: #f7faff;
+  border: 1px solid #e2ebf8;
+}
+
+.history-title-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 10px;
+}
+
+.history-title-row h2 {
+  margin: 0;
+  font-size: 0.95rem;
+  letter-spacing: -0.01em;
+}
+
+.clear-history {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  border: 0;
+  color: #52667d;
+  background: transparent;
+  cursor: pointer;
+  font-size: 0.8rem;
+  font-weight: 800;
+}
+
+.clear-history:disabled {
+  cursor: not-allowed;
+  opacity: 0.45;
+}
+
+.empty-history {
+  margin: 0;
+  color: #71849b;
+  font-size: 0.9rem;
+}
+
+.history-panel ul {
+  display: grid;
+  gap: 8px;
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+.history-panel li button {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 10px 12px;
+  border: 1px solid #e4edf8;
+  border-radius: 14px;
+  color: #334a63;
+  background: white;
+  cursor: pointer;
+  text-align: left;
+}
+
+.history-panel li span {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.history-panel li strong {
+  color: #0f766e;
+}
+
+@media (max-width: 420px) {
+  .app-shell {
+    padding: 16px 10px;
+  }
+
+  .calculator-card {
+    padding: 16px;
+    border-radius: 24px;
+  }
+
+  .calc-button {
+    min-height: 58px;
+    border-radius: 17px;
+  }
+}
